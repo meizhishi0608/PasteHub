@@ -21,27 +21,40 @@
 
 ## 下载与安装
 
-### 1. 安装 Python（只需一次）
-1. 打开 https://www.python.org/downloads/
-2. 下载最新版本并安装
-3. **安装时务必勾选 Add Python to PATH**
+### 1. 在D盘创建指定文件夹
+- 1. 创建主目录
+md D:\PasteHub
+cd /d D:\PasteHub
+
+- 2. 创建data文件夹
+md data
+
+- 3. 生成配置文件
+copy config.example.json config.json
+
 
 ### 2. 把代码放进 D 盘
-在 D 盘创建一个文件夹 `PasteHub`，把本仓库的所有文件放进去：
 
-- 方式 A（最简单）：本页右上角 Code → Download ZIP → 解压到 `D:\PasteHub`
-- 方式 B（会用 Git 的人）：`git clone https://github.com/<你的用户名>/PasteHub.git D:\PasteHub`
+拉取代码
+git clone https://github.com/meizhishi0608/PasteHub.git .
 
 最终目录结构：
 
 ```
 D:\PasteHub
-├── 启动.bat          ← 双击它启动
-├── clipboard_monitor.pyw
-├── app.ico
-├── requirements.txt
-├── config.example.json
-└── README.md
+├─ data                  # 剪贴记录数据存放目录
+│  ├─ text
+│  ├─ images
+│  ├─ thumbs
+│  └─ index
+├─ 启动.bat              ← 双击它启动
+├─ clipboard_monitor.pyw
+├─ app.ico
+├─ requirements.txt
+├─ config.example.json
+├─ config.json
+└─ README.md
+
 ```
 
 ### 3. 启动
