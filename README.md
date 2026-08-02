@@ -17,34 +17,42 @@
 - Python 3.10 或更高版本
 - 首次启动需要联网，自动安装 Pillow（图片处理库，只需一次）
 
-不需要安装 PyCharm、VSCode、Git 等任何编程工具。
+不需要安装 PyCharm、VSCode 等任何编程工具（只需安装 Python 和 Git，见下方安装步骤）。
 
 ## 下载与安装
 
-### 下载与安装
-# 下载与安装
-## 1. 在D盘创建指定文件夹（cmd）
-打开 cmd，逐条执行下方命令：
+### 1. 安装 Python（只需一次）
+1. 打开 https://www.python.org/downloads/
+2. 下载最新版本并安装
+3. **安装时务必勾选 Add Python to PATH**
+
+### 2. 安装 Git（只需一次）
+1. 打开 https://git-scm.com/downloads
+2. 下载并安装，一路默认设置即可
+
+### 3. 在 D 盘创建文件夹并拉取代码（cmd）
+打开 cmd（按 `Win + R`，输入 `cmd` 回车），逐条执行：
+
 ```cmd
-:: i. 创建主目录并进入文件夹
+:: i. 创建主目录并进入
 md D:\PasteHub
 cd /d D:\PasteHub
 
-:: ii. 创建data数据文件夹
+:: ii. 拉取代码到当前文件夹
+git clone https://github.com/meizhishi0608/PasteHub.git .
+
+:: iii. 创建 data 数据文件夹
 md data
 
-:: iii. 生成程序可用配置文件
+:: iv. 生成程序可用配置文件
 copy config.example.json config.json
-
-### 2. 把代码放进 D 盘
-:: 拉取代码
-git clone https://github.com/meizhishi0608/PasteHub.git .
+```
 
 最终目录结构：
 
 ```
 D:\PasteHub
-├─ data                  # 剪贴记录数据存放目录
+├─ data                  # 剪贴记录数据存放目录（text/images/thumbs/index 由程序自动生成）
 │  ├─ text
 │  ├─ images
 │  ├─ thumbs
@@ -56,18 +64,17 @@ D:\PasteHub
 ├─ config.example.json
 ├─ config.json
 └─ README.md
-
 ```
 
-### 3. 启动
-双击 `启动.bat`。第一次会自动完成四件事：
+### 4. 启动
+双击 `启动.bat`。第一次会自动完成三件事：
 1. 检测 Python
 2. 安装 Pillow（图片处理库）
-3. 启动程序，并自动创建 `data` 数据文件夹
-4. 在桌面自动创建 `PasteHub` 快捷方式（如果还没有的话）
+3. 在桌面自动创建 `PasteHub` 快捷方式（如果还没有的话）
 
-之后程序在后台运行，开始记录。**不需要手动创建任何文件夹。** 以后每天使用，直接双击桌面的 `PasteHub` 快捷方式即可。
+之后程序在后台运行，开始记录。以后每天使用，直接双击桌面的 `PasteHub` 快捷方式即可。如果忘了创建 `data` 文件夹，启动时会有中文提醒。
 
+> 以后程序更新：在 `D:\PasteHub` 里打开 cmd，执行 `git pull` 即可；你的 `data` 记录和 `config.json` 不会被覆盖。
 ## 使用说明
 - **打开窗口**：双击桌面的 `PasteHub` 快捷方式（或再双击一次 `启动.bat`），如果程序已在运行，会自动把窗口调到前台
 - **查看某天**：用日历选择日期，下方列出当天的记录
@@ -91,7 +98,7 @@ data
 - 注意：剪贴板里可能出现密码、验证码等敏感内容，建议复制敏感内容时先点「暂停记录」；不要把 `data` 文件夹发给别人，也不要上传到 GitHub
 
 ## 配置文件（可选）
-默认不需要任何配置。如果想自定义，把 `config.example.json` 复制一份并改名为 `config.json` 即可：
+安装步骤里已经自动生成了 `config.json`（内容与示例一致）。默认无需任何配置；如果想自定义，直接编辑 `config.json` 即可：
 
 ```json
 {
@@ -121,6 +128,8 @@ data
 ## 常见问题
 - **双击启动.bat 一闪而过 / 提示没有 Python**：先按上面第 1 步安装 Python，勾选 Add Python to PATH，装好后再双击
 - **提示 Pillow 安装失败**：检查网络后重新双击 `启动.bat` 即可
+- **提示 git 不是内部或外部命令**：说明还没安装 Git，按上面第 2 步安装后重试
+- **提示"还没有发现 data 文件夹"**：按上面第 3 步手动新建 `data` 文件夹，再重新双击 `启动.bat`
 - **启动后没看到窗口**：程序默认在后台运行；双击桌面 `PasteHub` 快捷方式（或再双击一次 `启动.bat`）会把窗口调出来
 - **桌面上没有 PasteHub 快捷方式**：再双击一次 `启动.bat`，它会自动补建
 - **杀毒软件拦截**：程序是本地脚本，不会上传任何数据；如有提示，选择「允许」
