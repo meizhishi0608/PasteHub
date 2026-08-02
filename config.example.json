@@ -1,0 +1,6 @@
+﻿{
+  "data_dir": "data",
+  "poll_interval_ms": 700,
+  "max_text_len": 200000,
+  "save_images": true
+}
