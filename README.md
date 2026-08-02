@@ -22,23 +22,22 @@
 ## 下载与安装
 
 ### 下载与安装
-#### 1. 在D盘创建指定文件夹（PowerShell）
-打开 Windows PowerShell，逐条执行下方命令：
-```powershell
-# i. 创建主目录并进入文件夹
+#### 1. 在D盘创建指定文件夹（cmd）
+打开 cmd ，逐条执行下方命令：
+```cmd
+:: i. 创建主目录并进入文件夹
+
 md D:\PasteHub
 cd /d D:\PasteHub
 
-# ii. 创建data数据文件夹
+:: ii. 创建data数据文件夹
 md data
 
-# iii. 生成程序可用配置文件
+:: iii. 生成程序可用配置文件
 copy config.example.json config.json
 
-
 ### 2. 把代码放进 D 盘
-
-拉取代码
+:: 拉取代码
 git clone https://github.com/meizhishi0608/PasteHub.git .
 
 最终目录结构：
