@@ -17,7 +17,7 @@
 - Python 3.10 或更高版本
 - 首次启动需要联网，自动安装 Pillow（图片处理库，只需一次）
 
-不需要安装 PyCharm、VSCode 等任何编程工具（只需安装 Python 和 Git，见下方安装步骤）。
+不需要安装 PyCharm、VSCode 等任何编程工具（只需安装 Python；用方式 A 还需要安装 Git，见下方安装步骤）。
 
 ## 下载与安装
 
@@ -26,12 +26,12 @@
 2. 下载最新版本并安装
 3. **安装时务必勾选 Add Python to PATH**
 
-### 2. 安装 Git（只需一次）
-1. 打开 https://git-scm.com/downloads
-2. 下载并安装，一路默认设置即可
+### 2. 获取代码（二选一，任选一种即可）
 
-### 3. 在 D 盘创建文件夹并拉取代码（cmd）
-打开 cmd（按 `Win + R`，输入 `cmd` 回车），逐条执行：
+#### 方式 A：用 Git 拉取（推荐，以后更新方便）
+1. 安装 Git：打开 https://git-scm.com/downloads ，下载并安装，一路默认设置即可,
+如果之前有安装git,直接进行下一步即可
+2. 打开 cmd（按 `Win + R`，输入 `cmd` 回车），逐条执行：
 
 ```cmd
 :: i. 创建主目录并进入
@@ -40,11 +40,21 @@ cd /d D:\PasteHub
 
 :: ii. 拉取代码到当前文件夹
 git clone https://github.com/meizhishi0608/PasteHub.git .
+```
 
-:: iii. 创建 data 数据文件夹
+#### 方式 B：从 Releases 下载 ZIP（不用装 Git）
+1. 打开本仓库页面，点击右侧的 **Releases**
+2. 找到最新版本，下载 `PasteHub-v1.0.zip`
+3. 把 ZIP 解压到 D 盘，得到 `D:\PasteHub` 文件夹
+
+> 两种方式得到的文件完全一样，选一种就行。
+
+### 3. 创建 data 文件夹和配置文件（两种方式都需要）
+打开 cmd，在 `D:\PasteHub` 里逐条执行：
+
+```cmd
+cd /d D:\PasteHub
 md data
-
-:: iv. 生成程序可用配置文件
 copy config.example.json config.json
 ```
 
@@ -74,7 +84,7 @@ D:\PasteHub
 
 之后程序在后台运行，开始记录。以后每天使用，直接双击桌面的 `PasteHub` 快捷方式即可。如果忘了创建 `data` 文件夹，启动时会有中文提醒。
 
-> 以后程序更新：在 `D:\PasteHub` 里打开 cmd，执行 `git pull` 即可；你的 `data` 记录和 `config.json` 不会被覆盖。
+> 以后程序更新：用方式 A 的用户在 `D:\PasteHub` 里执行 `git pull` 即可；用方式 B 的用户重新下载最新版 ZIP 覆盖即可。两种方式都不会动你的 `data` 记录和 `config.json`。
 ## 使用说明
 - **打开窗口**：双击桌面的 `PasteHub` 快捷方式（或再双击一次 `启动.bat`），如果程序已在运行，会自动把窗口调到前台
 - **查看某天**：用日历选择日期，下方列出当天的记录
@@ -128,7 +138,7 @@ data
 ## 常见问题
 - **双击启动.bat 一闪而过 / 提示没有 Python**：先按上面第 1 步安装 Python，勾选 Add Python to PATH，装好后再双击
 - **提示 Pillow 安装失败**：检查网络后重新双击 `启动.bat` 即可
-- **提示 git 不是内部或外部命令**：说明还没安装 Git，按上面第 2 步安装后重试
+- **提示 git 不是内部或外部命令**：说明还没安装 Git，按上面方式 A 第 1 步安装后重试（也可以改用方式 B 下载 ZIP）
 - **提示"还没有发现 data 文件夹"**：按上面第 3 步手动新建 `data` 文件夹，再重新双击 `启动.bat`
 - **启动后没看到窗口**：程序默认在后台运行；双击桌面 `PasteHub` 快捷方式（或再双击一次 `启动.bat`）会把窗口调出来
 - **桌面上没有 PasteHub 快捷方式**：再双击一次 `启动.bat`，它会自动补建
