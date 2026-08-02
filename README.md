@@ -21,16 +21,19 @@
 
 ## 下载与安装
 
-### 1. 在D盘创建指定文件夹
-- 1. 创建主目录
-md D:\PasteHub
-cd /d D:\PasteHub
+### 下载与安装
+#### 1. 在D盘创建指定文件夹（PowerShell）
+打开 Windows PowerShell，逐条执行下方命令：
+```powershell
+# i. 创建主目录并进入文件夹
+New-Item -Path "D:\PasteHub" -ItemType Directory -Force
+Set-Location D:\PasteHub
 
-- 2. 创建data文件夹
-md data
+# ii. 创建data数据文件夹
+New-Item -Path "D:\PasteHub\data" -ItemType Directory -Force
 
-- 3. 生成配置文件
-copy config.example.json config.json
+# iii. 生成程序可用配置文件
+Copy-Item config.example.json config.json
 
 
 ### 2. 把代码放进 D 盘
